@@ -1,1 +1,1 @@
-angular.module('testApp', ['inclistTest']);
+angular.module('testApp', ['angular-ui-addons', 'inclistTest']);
