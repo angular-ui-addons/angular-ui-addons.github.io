@@ -1,11 +1,184 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="demoApp" id="top">
+<html lang="en" ng-app="testApp">
 <head>
-  <title>Usefull things</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
+  <title>AngularUI Addons for AngularJS</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="lib/angular-ui-addons/src/inclist/example/inclistTest.css" rel="text/css"/>
+
+  <!-- Custom styles for this template -->
+  <link href="css/sticky-footer-navbar.css" rel="stylesheet">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script src="misc/lib/angular.min.js"></script>
+
+  <script src="lib/angular-ui-addons/src/inclist/inclist.js"></script>
+  <script src="js/inclist.js"></script>
+
+  <script id="templates/inclist/inclist-out-list.html" type="text/ng-template">
+    <ul class="list-inline plates">
+      <li ng-repeat="item in list">{{ item.name }}
+        <button type="button" class="close" aria-hidden="true" ng-click="removeItem(item.id)">&times;</button>
+      </li>
+    </ul>
+  </script>
+
+  <script id="templates/inclist/inclist-input.html" type="text/ng-template">
+    <form ng-submit="addPropertyToList()">
+      <div class="input-group">
+        <input id="inputPropsList" type="text" ng-model="propSelection"
+               placeholder="Type here and press enter to add property"
+               autocomplete="off" class="form-control">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">+</button>
+        </span>
+      </div>
+    </form>
+  </script>
+
 </head>
 <body>
-<h1>Hello World</h1>
+
+<!-- Wrap all page content here -->
+<div id="wrap">
+
+  <!-- Fixed navbar -->
+  <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">AngularUI Addons</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#getting_started">Getting started</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Directives <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#inclist">Inclist</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+
+  <!-- Begin page content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        <section id="getting_started">
+          <div class="page-header">
+            <h1>Getting started</h1>
+          </div>
+          <h3>Dependencies</h3>
+          <p>
+            This repository contains a set of useful <strong>AngularJS directives</strong> based on
+            Bootstrap's markup and CSS. The library is build with common views in mind, so you can use
+            it without Bootstrap markup, suppressing it with you own templates. The library has no dependency
+            on jQuery or Bootstrap's the JavaScript only is required. Bootstrap library is only used for "e.g."
+            purposes as a markup for initial templates for directives and can be surely replaced with your own.
+            The <strong>only required dependencies</strong> are:
+          </p>
+          <ul>
+            <li><a href="http://angularjs.org" target="_blank">AngularJS</a> (minimal version 1.0.8)</li>
+          </ul>
+          <h3>Files to download</h3>
+          <!--<p>-->
+            <!--Build files for all directives are distributed in several flavours: minified for production usage, un-minified-->
+            <!--for development, with or without templates. All the options are described and can be-->
+            <!--<a href="???">downloaded from here</a>.-->
+          <!--</p>-->
+          <!--<p>Alternativelly, if you are only interested in a subset of directives, you can-->
+            <!--<a ng-click="showBuildModal()">create your own build</a>.-->
+          <!--</p>-->
+          <p>Whichever method you choose the good news that the overall size of a download is very small:
+            &lt;20kB for all directives (~5kB with gzip compression!)</p>
+          <h3>Installation</h3>
+          <p>As soon as you've got all the files downloaded and included in your page you just need to declare
+            a dependency on the <code>angular-ui-addons.inclist</code> (or which ever you want) <a href="http://docs.angularjs.org/guide/module">module</a>:<br>
+          </p>
+          <pre><code>angular.module('myModule', ['angular-ui-addons.inclist', ...]);</code></pre>
+          <p></p>
+          <p>You can fork one of the plunkers from this page to see a working example of what is described here.</p>
+          <h3>CSS</h3>
+          <p>No custom css supplied yet</p>
+          <p></p>
+        </section>
+
+        <section id="inclist">
+
+
+          <div class="page-header">
+            <div class="row">
+              <div class="col-md-10">
+                <h1>Inclist <small>angular-ui-addons.inclist</small></h1>
+              </div>
+              <div class="col-md-2">
+                <a class="btn btn-primary btn-xs get-code-btn pull-right" style="margin-top: 30px;">Get code</a>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-7">
+              <h4>Example</h4>
+
+              <div class="form-group" ng-controller="InclistTestCtrl">
+                <div class="form-group">
+                  <div class="col-sm-10" ng-class="{'has-error': wrongPropSelection || propSelectionAlreadyExists}">
+
+                    <inclist-input inclist-input-list="list" inclist-input-prop-selection="propSelection"></inclist-input>
+
+                    <inclist-out inclist-out-list="list"></inclist-out>
+                  </div>
+                  <div class="col-sm-6" ng-show="wrongPropSelection">
+                    <span class="help-block"><p class="text-danger">Please, check your input! The property does not exist!</p></span>
+                  </div>
+                  <div class="col-sm-6" ng-show="propSelectionAlreadyExists">
+                    <span class="help-block"><p class="text-danger">Please, check your input! The property already added!</p></span>
+                  </div>
+                </div>
+              </div>
+
+              <p></p>
+
+            </div>
+
+            <div class="col-md-5">
+              <p>No description supplied yet</p>
+              <p></p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="footer">
+  <div class="container">
+    <p class="text-muted">Place sticky footer content here.</p>
+  </div>
+</div>
+
 </body>
 </html>

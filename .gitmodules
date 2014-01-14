@@ -1,3 +1,6 @@
 [submodule "lib/bootstrap"]
 	path = lib/bootstrap
 	url = git://github.com/twitter/bootstrap.git
+[submodule "lib/angular-ui-addons"]
+	path = lib/angular-ui-addons
+	url = https://github.com/pymeat/angular-ui-addons.git
