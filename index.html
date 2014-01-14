@@ -23,29 +23,10 @@
   <script src="misc/lib/angular.min.js"></script>
 
   <script src="lib/angular-ui-addons/src/inclist/inclist.js"></script>
+
+  <script src="lib/angular-ui-addons/src/inclist/example/inclistTest.js"></script>
+
   <script src="js/inclist.js"></script>
-
-  <script id="templates/inclist/inclist-out-list.html" type="text/ng-template">
-    <ul class="list-inline plates">
-      <li ng-repeat="item in list">{{ item.name }}
-        <button type="button" class="close" aria-hidden="true" ng-click="removeItem(item.id)">&times;</button>
-      </li>
-    </ul>
-  </script>
-
-  <script id="templates/inclist/inclist-input.html" type="text/ng-template">
-    <form ng-submit="addPropertyToList()">
-      <div class="input-group">
-        <input id="inputPropsList" type="text" ng-model="propSelection"
-               placeholder="Type here and press enter to add property"
-               autocomplete="off" class="form-control">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="submit">+</button>
-        </span>
-      </div>
-    </form>
-  </script>
-
 </head>
 <body>
 
@@ -139,23 +120,15 @@
         </section>
 
         <section id="inclist">
-
-
           <div class="page-header">
             <div class="row">
-              <div class="col-md-10">
-                <h1>Inclist <small>angular-ui-addons.inclist</small></h1>
-              </div>
-              <div class="col-md-2">
-                <a class="btn btn-primary btn-xs get-code-btn pull-right" style="margin-top: 30px;">Get code</a>
-
-              </div>
+              <h1>Inclist <small>angular-ui-addons.inclist</small></h1>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-7">
-              <h4>Example</h4>
+              <h4>Demo</h4>
 
               <div class="form-group" ng-controller="InclistTestCtrl">
                 <div class="form-group">
@@ -181,6 +154,15 @@
                 current input. For <code>inclist-out</code> directive set attribute <code>inclist-out-list</code> that should be
                 assigned to the same model as <code>inclist-input-list</code> for list output to work properly.</p>
               <p></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <h4>Source</h4>
+
+              <iframe width="100%" height="300" src="http://jsfiddle.net/pymeat/Uk3BM/8/embedded/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
             </div>
           </div>
         </section>
