@@ -80,6 +80,27 @@
 
   <!-- Begin page content -->
   <div class="container">
+    <div class="jumbotron text-center">
+      <h1>AngularUI Addons</h1>
+      <p class="lead">A <strong>free</strong> set of <strong>AngularJS native libraries</strong> built with respect to <a href="http://angular-ui.github.io/" target="_blank" rel="nofollow">AngularUI</a> project to make your UI look prettier.</p>
+      <div class="bs-docs-social">
+        <div class="container">
+          <ul class="bs-docs-social-buttons list-inline">
+            <li>
+              <iframe src="http://ghbtns.com/github-btn.html?user=pymeat&amp;repo=angular-ui-addons&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110" height="20"></iframe>
+            </li>
+            <li>
+              <iframe src="http://ghbtns.com/github-btn.html?user=pymeat&amp;repo=angular-ui-addons&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
+            </li>
+            <li>
+              <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" src="http://platform.twitter.com/widgets/tweet_button.1387492107.html#_=1389686241322&amp;count=horizontal&amp;hashtags=angularjs&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=http%3A%2F%2Fpymeat.github.io%2F&amp;size=m&amp;text=AngularUI%20Addons%20for%20AngularJS&amp;url=http%3A%2F%2Fpymeat.github.io%2F" class="twitter-share-button twitter-tweet-button twitter-count-horizontal" title="Twitter Tweet Button" data-twttr-rendered="true" style="width: 107px; height: 20px;"></iframe>
+              <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-md-12">
 
@@ -100,14 +121,9 @@
             <li><a href="http://angularjs.org" target="_blank">AngularJS</a> (minimal version 1.0.8)</li>
           </ul>
           <h3>Files to download</h3>
-          <!--<p>-->
-            <!--Build files for all directives are distributed in several flavours: minified for production usage, un-minified-->
-            <!--for development, with or without templates. All the options are described and can be-->
-            <!--<a href="???">downloaded from here</a>.-->
-          <!--</p>-->
-          <!--<p>Alternativelly, if you are only interested in a subset of directives, you can-->
-            <!--<a ng-click="showBuildModal()">create your own build</a>.-->
-          <!--</p>-->
+          <p>
+            The only option for now is to get source code <a href="https://github.com/pymeat/angular-ui-addons">from here</a>.
+          </p>
           <p>Whichever method you choose the good news that the overall size of a download is very small:
             &lt;20kB for all directives (~5kB with gzip compression!)</p>
           <h3>Installation</h3>
@@ -144,16 +160,9 @@
               <div class="form-group" ng-controller="InclistTestCtrl">
                 <div class="form-group">
                   <div class="col-sm-10" ng-class="{'has-error': wrongPropSelection || propSelectionAlreadyExists}">
-
                     <inclist-input inclist-input-list="list" inclist-input-prop-selection="propSelection"></inclist-input>
 
                     <inclist-out inclist-out-list="list"></inclist-out>
-                  </div>
-                  <div class="col-sm-6" ng-show="wrongPropSelection">
-                    <span class="help-block"><p class="text-danger">Please, check your input! The property does not exist!</p></span>
-                  </div>
-                  <div class="col-sm-6" ng-show="propSelectionAlreadyExists">
-                    <span class="help-block"><p class="text-danger">Please, check your input! The property already added!</p></span>
                   </div>
                 </div>
               </div>
@@ -163,7 +172,14 @@
             </div>
 
             <div class="col-md-5">
-              <p>No description supplied yet</p>
+              <p>The widget allow you to place two items: input - the <code>inclist-input</code> directive
+                and list which is <code>inclist-out</code> directive where you need it
+                and implement simple but useful "incremental list" ux-pattern.</p>
+              <p>
+                Be sure to set <code>inclist-input-list</code> and <code>inclist-input-prop-selection</code> attributes for
+                <code>inclist-input</code> directive to those models that should be responsible for list content and
+                current input. For <code>inclist-out</code> directive set attribute <code>inclist-out-list</code> that should be
+                assigned to the same model as <code>inclist-input-list</code> for list output to work properly.</p>
               <p></p>
             </div>
           </div>
