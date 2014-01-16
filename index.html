@@ -146,13 +146,10 @@
 
             <div class="col-md-5">
               <p>The widget allow you to place two items: input - the <code>inclist-input</code> directive
-                and list which is <code>inclist-out</code> directive where you need it
-                and implement simple but useful "incremental list" ux-pattern.</p>
+                and list which is <code>inclist-out</code> directive wrapping it with <code>inclist</code> directive
+                where you need it and implement simple but useful "incremental list" ux-pattern.</p>
               <p>
-                Be sure to set <code>inclist-input-list</code> and <code>inclist-input-prop-selection</code> attributes for
-                <code>inclist-input</code> directive to those models that should be responsible for list content and
-                current input. For <code>inclist-out</code> directive set attribute <code>inclist-out-list</code> that should be
-                assigned to the same model as <code>inclist-input-list</code> for list output to work properly.</p>
+                Be sure to set <code>data-list</code> in the scope of <code>inclist</code> directive.</p>
               <p></p>
             </div>
           </div>
