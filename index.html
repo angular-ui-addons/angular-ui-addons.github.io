@@ -22,6 +22,8 @@
 
   <script src="misc/lib/angular.min.js"></script>
 
+  <script src="lib/ui-bootstrap-tpls.js"></script>
+
   <script src="lib/angular-ui-addons/dist/angular-ui-addons-tpls-0.1.0.js"></script>
 
   <script src="lib/angular-ui-addons/src/inclist/example/inclistTest.js"></script>
@@ -127,16 +129,16 @@
           </div>
 
           <div class="row" ng-controller="InclistTestCtrl">
-            <div class="col-md-7">
+            <div class="col-md-6">
               <h4>Demo</h4>
 
-              <div class="form-group" inclist data-items="list1">
+              <div class="form-group" inclist
+                   data-items="list1" data-inclist-unique
+                   data-typeahead-items="typeaheadSrcRaw" data-inclist-typeahead-restrict>
                 <div class="form-group">
-                  <div class="col-sm-10" ng-class="{'has-error': wrongPropSelection || propSelectionAlreadyExists}">
-                    <div inclist-input></div>
+                  <div inclist-input></div>
 
-                    <div inclist-out></div>
-                  </div>
+                  <div inclist-out></div>
                 </div>
               </div>
 
@@ -144,12 +146,17 @@
 
             </div>
 
-            <div class="col-md-5">
+            <div class="col-md-6">
               <p>The widget allow you to place two items: input - the <code>inclist-input</code> directive
                 and list which is <code>inclist-out</code> directive wrapping it with <code>inclist</code> directive
                 where you need it and implement simple but useful "incremental list" ux-pattern.</p>
               <p>
                 Be sure to set <code>data-list</code> in the scope of <code>inclist</code> directive.</p>
+              <p>
+                You can pass some additional options: <code>data-inclist-unique</code> - to allow only unique values
+                in resulting list, <code>data-typeahead-items</code> - source model for tepeahead 'angular-ui' module
+                directive, <code>data-inclist-typeahead-restrict</code> - allow only values from 'typeahead's source
+                list to exist in resulting list.</p>
               <p></p>
             </div>
           </div>
