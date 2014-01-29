@@ -133,8 +133,11 @@
               <h4>Demo</h4>
 
               <div class="form-group" inclist
-                   data-items="list1" data-inclist-unique
-                   data-typeahead-items="typeaheadSrcRaw" data-inclist-typeahead-restrict>
+                   data-inclist-items="list1"
+                   data-inclist-field="name"
+                   data-inclist-unique
+                   data-typeahead-items="typeaheadSrc"
+                   data-typeahead-restrict>
                 <div class="form-group">
                   <div inclist-input></div>
 
@@ -151,11 +154,13 @@
                 and list which is <code>inclist-out</code> directive wrapping it with <code>inclist</code> directive
                 where you need it and implement simple but useful "incremental list" ux-pattern.</p>
               <p>
-                Be sure to set <code>data-list</code> in the scope of <code>inclist</code> directive.</p>
+                Be sure to set <code>data-inclist-items</code> in the scope of <code>inclist</code> directive, and
+                <pre>data-inclist-field</pre> for field name of <code>data-inclist-items</code> item's object
+                that will be used as a "display name" for each item.</p>
               <p>
-                You can pass some additional options: <code>data-inclist-unique</code> - to allow only unique values
+                You can pass additional options: <code>data-inclist-unique</code> - to allow only unique values
                 in resulting list, <code>data-typeahead-items</code> - source model for tepeahead 'angular-ui' module
-                directive, <code>data-inclist-typeahead-restrict</code> - allow only values from 'typeahead's source
+                directive, <code>data-typeahead-restrict</code> - allow only values from 'typeahead's source
                 list to exist in resulting list.</p>
               <p></p>
             </div>

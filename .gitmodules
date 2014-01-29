@@ -4,3 +4,6 @@
 [submodule "lib/angular-ui-addons"]
 	path = lib/angular-ui-addons
 	url = https://github.com/pymeat/angular-ui-addons.git
+[submodule "lib/angular-bootstrap"]
+	path = lib/angular-bootstrap
+	url = https://github.com/angular-ui/bootstrap.git
